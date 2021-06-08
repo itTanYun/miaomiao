@@ -37,7 +37,7 @@
         <div class="address">
           <span>龙岗区葵涌街道葵新北路东侧农贸综合市场2﹟3楼</span>
           <span>131.4km</span>
-        </div>
+        </div> 
         <div class="card">
           <div>小吃</div>
           <div>折扣卡</div>
