@@ -1,0 +1,159 @@
+{
+    "chiefBonus": {},
+    "coming": [],
+    "movieIds": [
+        343034,
+        247871,
+        1242151,
+        1302134,
+        344264,
+        1156913,
+        79166
+    ],
+    "stid": "576591972453269000",
+    "stids": [
+        {
+            "movieId": 343034,
+            "stid": "576591972453269000_a343034_c0"
+        },
+        {
+            "movieId": 247871,
+            "stid": "576591972453269000_a247871_c1"
+        },
+        {
+            "movieId": 1242151,
+            "stid": "576591972453269000_a1242151_c2"
+        },
+        {
+            "movieId": 1302134,
+            "stid": "576591972453269000_a1302134_c3"
+        },
+        {
+            "movieId": 344264,
+            "stid": "576591972453269000_a344264_c4"
+        },
+        {
+            "movieId": 1156913,
+            "stid": "576591972453269000_a1156913_c5"
+        },
+        {
+            "movieId": 79166,
+            "stid": "576591972453269000_a79166_c6"
+        }
+    ],
+    "total": 7,
+    "movieList": [
+        {
+            "id": 343034,
+            "haspromotionTag": false,
+            "img": "http://p1.meituan.net/170.230/moviemachine/fdd380fb2f7f0f1742f9f7c8ae7c5fec7189073.jpg",
+            "version": "v3d imax",
+            "nm": "速度与激情9",
+            "preShow": false,
+            "sc": 7.5,
+            "globalReleased": true,
+            "wish": 1280573,
+            "star": "范·迪塞尔,米歇尔·罗德里格兹,泰瑞斯·吉布森",
+            "rt": "2021-05-21",
+            "showInfo": "今天3家影院放映4场",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 247871,
+            "haspromotionTag": false,
+            "img": "http://p0.meituan.net/170.230/movie/dc2fed6001e809e4553f90cc6fad9a59245170.jpg",
+            "version": "",
+            "nm": "我要我们在一起",
+            "preShow": false,
+            "sc": 8,
+            "globalReleased": true,
+            "wish": 403547,
+            "star": "屈楚萧,张婧仪,孙宁",
+            "rt": "2021-05-20",
+            "showInfo": "今天2家影院放映3场",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 1242151,
+            "haspromotionTag": false,
+            "img": "http://p0.meituan.net/170.230/moviemachine/4f5ecc2cb68afdfce773914c126cb2dd146582.jpg",
+            "version": "v2d imax",
+            "nm": "寂静之地2",
+            "preShow": false,
+            "sc": 7.7,
+            "globalReleased": true,
+            "wish": 59625,
+            "star": "艾米莉·布朗特,希里安·墨菲,米利森特·西蒙兹",
+            "rt": "2021-05-28",
+            "showInfo": "今天1家影院放映3场",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 1302134,
+            "haspromotionTag": false,
+            "img": "http://p0.meituan.net/170.230/movie/69291d617c3dc5dcac5e3bf29dda63ac2200192.jpg",
+            "version": "v3d",
+            "nm": "哆啦A梦：伴我同行2",
+            "preShow": false,
+            "sc": 9.1,
+            "globalReleased": true,
+            "wish": 271443,
+            "star": "水田山葵,大原惠美,嘉数由美",
+            "rt": "2021-05-28",
+            "showInfo": "今天2家影院放映2场",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 344264,
+            "haspromotionTag": false,
+            "img": "http://p0.meituan.net/170.230/movie/0355f74de087b699b85b7daa3d7881ec365712.jpg",
+            "version": "v2d imax",
+            "nm": "战狼2",
+            "preShow": false,
+            "sc": 9.7,
+            "globalReleased": true,
+            "wish": 413020,
+            "star": "吴京,弗兰克·格里罗,吴刚",
+            "rt": "2021-06-01",
+            "showInfo": "今天1家影院放映1场",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 1156913,
+            "haspromotionTag": false,
+            "img": "http://p1.meituan.net/170.230/movie/b285d40c64ac90a74f8c541f3890b9191285394.jpg",
+            "version": "",
+            "nm": "匹诺曹",
+            "preShow": false,
+            "sc": 7.9,
+            "globalReleased": true,
+            "wish": 45620,
+            "star": "罗伯托·贝尼尼,费德里科·伊帕迪,马西莫·切可里尼",
+            "rt": "2021-06-01",
+            "showInfo": "今天1家影院放映1场",
+            "showst": 3,
+            "wishst": 0
+        },
+        {
+            "id": 79166,
+            "haspromotionTag": false,
+            "img": "http://p0.meituan.net/170.230/movie/e0484e772108f5dbef8ea9d55bdfb1ce320378.jpg",
+            "version": "",
+            "nm": "兵临城下",
+            "preShow": false,
+            "sc": 0,
+            "globalReleased": true,
+            "wish": 44,
+            "star": "李默然,庞学勤,中叔皇",
+            "rt": "2021-06-01",
+            "showInfo": "今天1家影院放映1场",
+            "showst": 3,
+            "wishst": 0
+        }
+    ]
+}
