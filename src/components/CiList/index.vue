@@ -110,9 +110,6 @@
 
 export default {
   name: "CiList",
-  components: {
-    MessageBox
-  },
   data() {
     return {
       pullDownMsg: "",
