@@ -1,110 +1,45 @@
 <template>
   <div class="city_body">
-    <!-- <div class="city_list">
-      <div class="city_hot">
-        <h2>热门城市</h2>
-        <ul class="clearfix">
-          <li>上海</li>
-          <li>北京</li>
-          <li>上海</li>
-          <li>北京</li>
-          <li>上海</li>
-          <li>北京</li>
-          <li>上海</li>
-          <li>北京</li>
-        </ul>
-      </div>
-      <div class="city_sort">
-        <div>
-          <h2>A</h2>
-          <ul>
-            <li>阿拉善盟</li>
-            <li>鞍山</li>
-            <li>安庆</li>
-            <li>安阳</li>
-          </ul>
-        </div>
-        <div>
-          <h2>B</h2>
-          <ul>
-            <li>北京</li>
-            <li>保定</li>
-            <li>蚌埠</li>
-            <li>包头</li>
-          </ul>
-        </div>
-        <div>
-          <h2>A</h2>
-          <ul>
-            <li>阿拉善盟</li>
-            <li>鞍山</li>
-            <li>安庆</li>
-            <li>安阳</li>
-          </ul>
-        </div>
-        <div>
-          <h2>B</h2>
-          <ul>
-            <li>北京</li>
-            <li>保定</li>
-            <li>蚌埠</li>
-            <li>包头</li>
-          </ul>
-        </div>
-        <div>
-          <h2>A</h2>
-          <ul>
-            <li>阿拉善盟</li>
-            <li>鞍山</li>
-            <li>安庆</li>
-            <li>安阳</li>
-          </ul>
-        </div>
-        <div>
-          <h2>B</h2>
-          <ul>
-            <li>北京</li>
-            <li>保定</li>
-            <li>蚌埠</li>
-            <li>包头</li>
-          </ul>
-        </div>
-      </div>
-    </div> -->
     <div class="city_list">
-      <!-- 热门城市 -->
-      <div class="city_hot">
-        <h2>热门城市</h2>
-        <ul class="clearfix">
-          <li>北京</li>
-          <li>上海</li>
-          <li>广州</li>
-          <li>深圳</li>
-          <li>杭州</li>
-          <li>南京</li>
-          <li>成都</li>
-          <li>天津</li>
-        </ul>
-      </div>
-      <!-- 城市排序 -->
-      <div class="city_sort" ref="city_sort">
-        <div v-for="item in cityList" :key="item.index">
-          <h2>{{ item.index }}</h2>
-          <ul>
-            <li v-for="itemList in item.list" :key="itemList.id">
-              {{ itemList.nm }}
-            </li>
-          </ul>
+      <Loading v-if="isLoading"></Loading>
+      <Scroller ref="city_List" v-else>
+        <div>
+          <!-- 热门城市 -->
+          <div class="city_hot">
+            <h2>热门城市</h2>
+            <ul class="clearfix">
+              <li @click="handleToHotCity('北京')">北京</li>
+              <li @click="handleToHotCity('上海')">上海</li>
+              <li @click="handleToHotCity('广州')">广州</li>
+              <li @click="handleToHotCity('深圳')">深圳</li>
+              <li @click="handleToHotCity('杭州')">杭州</li>
+              <li @click="handleToHotCity('南京')">南京</li>
+              <li @click="handleToHotCity('成都')">成都</li>
+              <li @click="handleToHotCity('天津')">天津</li>
+            </ul>
+          </div>
+          <!-- 城市排序 -->
+          <div class="city_sort" ref="city_sort">
+            <div v-for="item in cityList" :key="item.index">
+              <h2>{{ item.index }}</h2>
+              <ul>
+                <li v-for="itemList in item.list" :key="itemList.id" @click="handleToCity(itemList)">
+                  {{ itemList.nm }}
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
+      </Scroller>
     </div>
+
     <!-- 城市首字母分类 -->
     <div class="city_index">
       <ul>
         <li
           v-for="(item, index) in cityList"
           :key="item.id"
-          @touchstart="handleToIndex(index)"
+          @click="handleToIndex(index)"
         >
           {{ item.index }}
         </li>
@@ -118,15 +53,29 @@ export default {
   name: "city",
   data() {
     return {
-      cityList: []
+      cityList: [],
+      isLoading: "true"
     };
   },
   mounted() {
-    //获取城市数据
-    var cityData = require("../../../public/data/city.json");
-    var cities = cityData.cts;
-    var cityList = this.formatCityList(cities);
-    this.cityList = cityList;
+    setTimeout(() => {
+      this.isLoading = false;
+
+      var cityList = window.localStorage.getItem("cityList");
+      if (cityList) {
+        cityList = JSON.parse(cityList);
+        this.cityList = cityList;
+      } else {
+        //获取城市数据
+        var cityData = require("../../../public/data/city.json");
+        var cities = cityData.cts;
+        cityList = this.formatCityList(cities);
+        this.cityList = cityList;
+
+        //储存数据到本地
+        window.localStorage.setItem("cityList", JSON.stringify(cityList));
+      }
+    }, 300);
   },
   methods: {
     //处理城市数据
@@ -175,7 +124,22 @@ export default {
     //处理按首字母跳转事件
     handleToIndex(index) {
       var h2 = this.$refs.city_sort.getElementsByTagName("h2");
-      this.$refs.city_sort.parentNode.scrollTop = h2[index].offsetTop;
+      this.$refs.city_List.toScrollTop(-h2[index].offsetTop);
+    },
+    //通过vuex来更改城市
+    handleToHotCity(city) {
+      this.$store.state.city.nm = city;
+      this.$router.push('/movie/nowPlaying');
+      //把当前城市保存到本地数据中去
+      window.localStorage.setItem("nowName", city);
+    },
+    //通过vuex来更改城市
+    handleToCity(itemList) {
+      this.$store.state.city.nm = itemList.nm;
+      this.$store.state.city.id = itemList.id;
+      window.localStorage.setItem("nowName", itemList.nm);
+      window.localStorage.setItem("nowId", itemList.id);
+      this.$router.push('/movie/nowPlaying');
     }
   }
 };

@@ -1,19 +1,29 @@
 <template>
   <div class="movie_body">
-    <ul>
-      <li v-for="item in comingList" :key="item.id">
-        <div class="pic_show"><img :src="item.img" /></div>
-        <div class="info_list">
-          <h2>{{item.nm}}</h2>
-          <p><span class="person">{{item.wish}}</span> 人想看</p>
-          <p>主演: {{item.star}}</p>
-          <p>{{item.rt}}上映</p>
-        </div>
-        <div class="btn_pre">
-          预售
-        </div>
-      </li>
-    </ul>
+    <Loading v-if="isLoading"></Loading>
+    <Scroller
+      v-else
+      :handleToScroll="handleToScroll"
+      :handleToTouchEnd="handleToTouchEnd"
+    >
+      <ul>
+        <li class="pullDown">{{ pullDownMsg }}</li>
+        <li v-for="item in comingList" :key="item.id">
+          <div class="pic_show"><img :src="item.img" /></div>
+          <div class="info_list">
+            <h2>{{ item.nm }}</h2>
+            <p>
+              <span class="person">{{ item.wish }}</span> 人想看
+            </p>
+            <p>主演: {{ item.star }}</p>
+            <p>{{ item.rt }}上映</p>
+          </div>
+          <div class="btn_pre">
+            预售
+          </div>
+        </li>
+      </ul>
+    </Scroller>
   </div>
 </template>
 
@@ -22,13 +32,35 @@ export default {
   name: "comingSoon",
   data() {
     return {
-      comingList : []
-    }
+      comingList: [],
+      pullDownMsg: "",
+      isLoading: "true"
+    };
   },
   mounted() {
-    var data = require('../../../public/data/comingSoon.json');
-    this.comingList = data.movieList;
-    console.log(this.comingList)
+    setTimeout(() => {
+      this.isLoading = false;
+      var data = require("../../../public/data/comingSoon.json");
+      this.comingList = data.movieList;
+    }, 300);
+  },
+  methods: {
+    handleToScroll(pos) {
+      if (pos.y > 30) {
+        this.pullDownMsg = "刷新中";
+      }
+    },
+    handleToTouchEnd(pos) {
+      if (pos.y > 30) {
+        this.comingList = [];
+        this.pullDownMsg = "刷新成功";
+        setTimeout(() => {
+          var data = require("../../../public/data/comingSoon.json");
+          this.comingList = data.movieList;
+          this.pullDownMsg = "";
+        }, 300);
+      }
+    }
   }
 };
 </script>
@@ -103,5 +135,10 @@ export default {
 }
 .movie_body .btn_pre {
   background-color: #3c9fe6;
+}
+.movie_body ul li.pullDown {
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 </style>

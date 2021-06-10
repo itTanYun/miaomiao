@@ -1,23 +1,34 @@
 <template>
-  <div class="movie_body">
-    <ul>
-      <li v-for="item in movieList" :key="item.id">
-        <div class="pic_show"><img :src="item.img" /></div>
-        <div class="info_list">
-          <h2>
-            {{ item.nm }}<img src="@/assets/maxs.png" v-if="item.version" />
-          </h2>
-          <p>
-            观众评 <span class="grade">{{ item.sc }}</span>
-          </p>
-          <p>主演: {{ item.star }}</p>
-          <p>{{ item.showInfo }}</p>
-        </div>
-        <div class="btn_mall">
-          购票
-        </div>
-      </li>
-    </ul>
+  <div class="movie_body" ref="movie_body">
+    <Loading v-if="isLoading"></Loading>
+    <!-- 使用封装的better-scroll组件 -->
+    <Scroller
+      v-else
+      :handleToScroll="handleToScroll"
+      :handleToTouchEnd="handleToTouchEnd"
+    >
+      <ul>
+        <li class="pullDown">{{ pullDownMsg }}</li>
+        <li v-for="item in movieList" :key="item.id">
+          <div class="pic_show">
+            <img :src="item.img" />
+          </div>
+          <div class="info_list">
+            <h2>
+              {{ item.nm }}<img src="@/assets/maxs.png" v-if="item.version" />
+            </h2>
+            <p>
+              观众评 <span class="grade">{{ item.sc }}</span>
+            </p>
+            <p>主演: {{ item.star }}</p>
+            <p>{{ item.showInfo }}</p>
+          </div>
+          <div class="btn_mall">
+            购票
+          </div>
+        </li>
+      </ul>
+    </Scroller>
   </div>
 </template>
 
@@ -26,12 +37,35 @@ export default {
   name: "NowPlaying",
   data() {
     return {
-      movieList: []
+      movieList: [],
+      pullDownMsg: "",
+      isLoading: "true"
     };
   },
   mounted() {
-    var data = require("../../../public/data/nowPlaying.json");
-    this.movieList = data.movieList;
+    setTimeout(() => {
+      this.isLoading = false;
+      var data = require("../../../public/data/nowPlaying.json");
+      this.movieList = data.movieList;
+    }, 300);
+  },
+  methods: {
+    handleToScroll(pos) {
+      if (pos.y > 30) {
+        this.pullDownMsg = "刷新中";
+      }
+    },
+    handleToTouchEnd(pos) {
+      if (pos.y > 30) {
+        this.movieList = [];
+        this.pullDownMsg = "刷新成功";
+        setTimeout(() => {
+          var data = require("../../../public/data/nowPlaying.json");
+          this.movieList = data.movieList;
+          this.pullDownMsg = "";
+        }, 300);
+      }
+    }
   }
 };
 </script>
@@ -106,5 +140,10 @@ export default {
 }
 .movie_body .btn_pre {
   background-color: #3c9fe6;
+}
+.movie_body ul li.pullDown {
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 </style>

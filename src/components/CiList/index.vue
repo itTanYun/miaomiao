@@ -1,102 +1,145 @@
 <template>
   <div class="cinema_body">
-    <ul>
-      <li>
-        <div>
-          <span>中影Le影城</span>
-          <span class="q"><span class="price">13</span> 元起</span>
-        </div>
-        <div class="address">
-          <span>龙岗区吉华街道三联社区三联商业广场3层</span>
-          <span>103.8km</span>
-        </div>
-        <div class="card">
-          <div>小吃</div>
-          <div>折扣卡</div>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span>大地影院(澳东世纪店)</span>
-          <span class="q"><span class="price">22.9</span> 元起</span>
-        </div>
-        <div class="address">
-          <span>龙华区龙华新区龙观东路与清龙路交汇处保利天街3楼保利国际影城</span>
-          <span>93.8km</span>
-        </div>
-        <div class="card">
-          <div>小吃</div>
-          <div>折扣卡</div>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span>中影海岸影城（葵涌店</span>
-          <span class="q"><span class="price">13</span> 元起</span>
-        </div>
-        <div class="address">
-          <span>龙岗区葵涌街道葵新北路东侧农贸综合市场2﹟3楼</span>
-          <span>131.4km</span>
-        </div> 
-        <div class="card">
-          <div>小吃</div>
-          <div>折扣卡</div>
-          <div>改签</div>
-          <div>退</div>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span>完美世界影城（深圳沙井店）</span>
-          <span class="q"><span class="price">14</span> 元起</span>
-        </div>
-        <div class="address">
-          <span>宝安区（原17.5影城）沙井街道新沙路与中心路交汇处华润万家4楼A</span>
-          <span>72.5km</span>
-        </div>
-        <div class="card">
-          <div>折扣卡</div>
-          <div>小吃</div>
-          <div>改签</div>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span>非凡数字影城</span>
-          <span class="q"><span class="price">14</span> 元起</span>
-        </div>
-        <div class="address">
-          <span>宝安区石岩街道塘头大道39号一楼（邮政银行旁）</span>
-          <span>83.9km</span>
-        </div>
-        <div class="card">
-          <div>小吃</div>
-          <div>折扣卡</div>
-          <div>退</div>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span>SFC上影影城（观澜店）</span>
-          <span class="q"><span class="price">14</span> 元起</span>
-        </div>
-        <div class="address">
-          <span>龙华区观澜大道117号福城天虹购物中心F227</span>
-          <span>92.9km</span>
-        </div>
-        <div class="card">
-          <div>小吃</div>
-          <div>折扣卡</div>
-          <div>杜比全景声厅</div>
-        </div>
-      </li>
-    </ul>
+    <Loading v-if="isLoading"></Loading>
+    <Scroller
+      v-else
+      :handleToScroll="handleToScroll"
+      :handleToTouchEnd="handleToTouchEnd"
+    >
+      <ul>
+        <li class="pullDown">{{ pullDownMsg }}</li>
+        <li>
+          <div>
+            <span>中影Le影城</span>
+            <span class="q"><span class="price">13</span> 元起</span>
+          </div>
+          <div class="address">
+            <span>龙岗区吉华街道三联社区三联商业广场3层</span>
+            <span>103.8km</span>
+          </div>
+          <div class="card">
+            <div>小吃</div>
+            <div>折扣卡</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span>大地影院(澳东世纪店)</span>
+            <span class="q"><span class="price">22.9</span> 元起</span>
+          </div>
+          <div class="address">
+            <span
+              >龙华区龙华新区龙观东路与清龙路交汇处保利天街3楼保利国际影城</span
+            >
+            <span>93.8km</span>
+          </div>
+          <div class="card">
+            <div>小吃</div>
+            <div>折扣卡</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span>中影海岸影城（葵涌店</span>
+            <span class="q"><span class="price">13</span> 元起</span>
+          </div>
+          <div class="address">
+            <span>龙岗区葵涌街道葵新北路东侧农贸综合市场2﹟3楼</span>
+            <span>131.4km</span>
+          </div>
+          <div class="card">
+            <div>小吃</div>
+            <div>折扣卡</div>
+            <div>改签</div>
+            <div>退</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span>完美世界影城（深圳沙井店）</span>
+            <span class="q"><span class="price">14</span> 元起</span>
+          </div>
+          <div class="address">
+            <span
+              >宝安区（原17.5影城）沙井街道新沙路与中心路交汇处华润万家4楼A</span
+            >
+            <span>72.5km</span>
+          </div>
+          <div class="card">
+            <div>折扣卡</div>
+            <div>小吃</div>
+            <div>改签</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span>非凡数字影城</span>
+            <span class="q"><span class="price">14</span> 元起</span>
+          </div>
+          <div class="address">
+            <span>宝安区石岩街道塘头大道39号一楼（邮政银行旁）</span>
+            <span>83.9km</span>
+          </div>
+          <div class="card">
+            <div>小吃</div>
+            <div>折扣卡</div>
+            <div>退</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span>SFC上影影城（观澜店）</span>
+            <span class="q"><span class="price">14</span> 元起</span>
+          </div>
+          <div class="address">
+            <span>龙华区观澜大道117号福城天虹购物中心F227</span>
+            <span>92.9km</span>
+          </div>
+          <div class="card">
+            <div>小吃</div>
+            <div>折扣卡</div>
+            <div>杜比全景声厅</div>
+          </div>
+        </li>
+      </ul>
+    </Scroller>
   </div>
 </template>
 
 <script>
+
 export default {
-  name: "CiList"
+  name: "CiList",
+  components: {
+    MessageBox
+  },
+  data() {
+    return {
+      pullDownMsg: "",
+      isLoading: "true"
+    };
+  },
+  mounted() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 300);
+  },
+  methods: {
+    handleToScroll(pos) {
+      if (pos.y > 30) {
+        this.pullDownMsg = "刷新中";
+      }
+    },
+    handleToTouchEnd(pos) {
+      if (pos.y > 30) {
+        this.pullDownMsg = "刷新成功";
+        setTimeout(() => {
+          var data = require("../../../public/data/nowPlaying.json");
+          this.pullDownMsg = "";
+        }, 300);
+      }
+    }
+  }
 };
 </script>
 
@@ -106,7 +149,8 @@ export default {
   overflow: auto;
 }
 .cinema_body ul {
-  padding: 20px;
+  margin: 0;
+  padding: 0 20px;
 }
 .cinema_body li {
   border-bottom: 1px solid #e6e6e6;
@@ -149,5 +193,9 @@ export default {
 .cinema_body .card div.bl {
   color: #589daf;
   border: 1px solid #589daf;
+}
+.cinema_body ul li.pullDown {
+  margin: 0;
+  padding: 0;
 }
 </style>
