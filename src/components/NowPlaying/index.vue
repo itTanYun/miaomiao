@@ -9,12 +9,12 @@
     >
       <ul>
         <li class="pullDown">{{ pullDownMsg }}</li>
-        <li v-for="item in movieList" :key="item.id">
+        <li v-for="item in movieList" :key="item.id" @click="handleDetail(item.id)">
           <div class="pic_show">
             <img :src="item.img" />
           </div>
           <div class="info_list">
-            <h2>
+            <h2 @click="handleDetail(item.id)">
               {{ item.nm }}<img src="@/assets/maxs.png" v-if="item.version" />
             </h2>
             <p>
@@ -65,6 +65,9 @@ export default {
           this.pullDownMsg = "";
         }, 300);
       }
+    },
+    handleDetail(movieId) {
+      this.$router.push('/movie/detail/'+ movieId);
     }
   }
 };

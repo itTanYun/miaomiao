@@ -1,0 +1,94 @@
+{
+    "data": {
+        "movie": {
+            "availableEpisodes": 0,
+            "awardUrl": "",
+            "backgroundColor": "#662E29",
+            "bingeWatch": 0,
+            "bingeWatchst": 0,
+            "cat": "战争",
+            "comScorePersona": false,
+            "commented": false,
+            "dir": "林农",
+            "distributions": [
+                {
+                    "movieScoreLevel": "9-10分",
+                    "proportion": "--"
+                },
+                {
+                    "movieScoreLevel": "5-8分",
+                    "proportion": "--"
+                },
+                {
+                    "movieScoreLevel": "1-4分",
+                    "proportion": "--"
+                }
+            ],
+            "dra": "解放战争时期，东北某城市。被我军释放的郑汉臣回城后，即受到蒋介石嫡系203师的怀疑，而且连上司369师师长赵崇武也牵扯进来。为了瓦解敌军，民主联军派姜部长前去劝说赵崇武倒戈，但赵迟疑不定。203师参谋长钱孝正发现了姜部长与郑汉臣的关系，他企图逮捕姜、郑二人。刚刚晋升的赵崇武命令把姜送回。不久，国民党派胡高参前来视察守军情况，他命赵崇武师担任突围的主攻任务。赵在突围时负伤。这时，赵崇武发现了蒋介石的密电，密电指示胡高参在突围后即处决赵崇武。赵对蒋的幻想破灭，率部阵前倒戈。他们逮捕了胡高参，打死了钱孝正，并迫使203师投降，东北某城迎来了解放。",
+            "dur": 106,
+            "egg": false,
+            "enm": "Bing lin cheng xia",
+            "episodeDur": 106,
+            "episodes": 0,
+            "filmAlias": "The City Is Under Siege",
+            "globalReleased": true,
+            "guideToWish": false,
+            "id": 79166,
+            "img": "http://p0.meituan.net/170.230/movie/e0484e772108f5dbef8ea9d55bdfb1ce320378.jpg",
+            "latestEpisode": 0,
+            "modcsSt": false,
+            "movieType": 0,
+            "multiPub": true,
+            "musicNum": 0,
+            "nm": "兵临城下",
+            "onSale": true,
+            "onlinePlay": true,
+            "orderSt": 0,
+            "oriLang": "国语",
+            "photos": [
+                "http://p0.meituan.net/450.750/mmdb/48d3de6af7e351982953a350fa738e2196673.jpg",
+                "http://p0.meituan.net/450.750/mmdb/a24053d13a00789d62393585034ebcd563341.jpg",
+                "http://p1.meituan.net/450.750/movie/7b67ae50e748d8364786fd3fd2e6b73066670.jpg@2500w_2500h_1l_0e",
+                "http://p0.meituan.net/450.750/movie/ea80b70c7673965cac8074551093fe0166748.jpg@2500w_2500h_1l_0e",
+                "http://p1.meituan.net/450.750/movie/11a6ab00fd734da942bbba497738b7aa56865.jpg@2500w_2500h_1l_0e",
+                "http://p0.meituan.net/450.750/movie/57794e65d4579d2b959760e28a27674b55459.jpg@2500w_2500h_1l_0e",
+                "http://p1.meituan.net/450.750/movie/b9ccf704218cfc9bdd5834d68e7fa3d149992.jpg@2500w_2500h_1l_0e",
+                "http://p1.meituan.net/450.750/movie/f4bb511be5d429aeee9875c31bf7ee6b330517.jpg@2500w_2500h_1l_0e",
+                "http://p1.meituan.net/450.750/movie/f9d11d7b2f02661b5bdcef66ca41dad3234529.jpg@2500w_2500h_1l_0e",
+                "http://p0.meituan.net/450.750/movie/cbb72e6e24eb1163f67e73bbfc4c64a964586.jpg@2500w_2500h_1l_0e",
+                "http://p0.meituan.net/450.750/movie/e0484e772108f5dbef8ea9d55bdfb1ce320378.jpg@2500w_2500h_1l_0e"
+            ],
+            "pn": 11,
+            "preScorePersona": false,
+            "proScore": 0,
+            "proScoreNum": 0,
+            "pubDate": 1622476800000,
+            "pubDesc": "2021-06-01中国大陆重映",
+            "rt": "1964-07-29",
+            "sc": 0,
+            "scm": "",
+            "scoreLabel": "暂无评分",
+            "shareInfo": {
+                "channel": 1,
+                "content": "简介|解放战争时期，东北某城市。被我军释放的郑汉臣回城后，即受到蒋介石嫡系203师的怀疑，而且连上司369师师长赵崇武也牵扯进来。为了瓦解敌军，民主联军派姜部长前去劝说赵崇武倒戈，但赵迟疑不定。203师参谋长钱孝正发现了姜部长与郑汉臣的关系，他企图逮捕姜、郑二人。刚刚晋升的赵崇武命令把姜送回。不久，国民党派胡高参前来视察守军情况，他命赵崇武师担任突围的主攻任务。赵在突围时负伤。这时，赵崇武发现了蒋介石的密电，密电指示胡高参在突围后即处决赵崇武。赵对蒋的幻想破灭，率部阵前倒戈。他们逮捕了胡高参，打死了钱孝正，并迫使203师投降，东北某城迎来了解放。",
+                "img": "http://p0.meituan.net/170.230/movie/e0484e772108f5dbef8ea9d55bdfb1ce320378.jpg",
+                "title": "《兵临城下》2021-06-01中国大陆重映",
+                "url": "https://m.maoyan.com/asgard/movie/79166"
+            },
+            "showst": 3,
+            "snum": 11,
+            "src": "中国大陆",
+            "star": "李默然,庞学勤,中叔皇",
+            "type": 0,
+            "ver": "2D",
+            "viewedSt": 0,
+            "vnum": 0,
+            "vodFreeSt": 0,
+            "vodPlay": false,
+            "vodSt": 0,
+            "watched": 1150,
+            "wish": 44,
+            "wishst": 0
+        }
+    }
+}
