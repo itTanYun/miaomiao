@@ -4,7 +4,8 @@
       <i class="iconfont icon-right" @click="handleToBack"></i>
     </Header>
     <Loading v-if="isLoading" />
-    <div id="content" class="contentDetail" v-else>
+    <Scroller v-else>
+    <div id="content" class="contentDetail">
       <div class="detail_list">
         <div class="detail_list_bg"></div>
         <div class="detail_list_filter"></div>
@@ -42,7 +43,7 @@
         </ul>
       </div>
     </div>
-    
+    </Scroller>
   </div>
 
 </template>
@@ -87,6 +88,12 @@ export default {
 </script>
 
 <style scoped>
+.wrapper {
+  height: 100px;
+}
+#header {
+  z-index: 99;
+}
 #detailContrainer {
   position: absolute;
   left: 0;
